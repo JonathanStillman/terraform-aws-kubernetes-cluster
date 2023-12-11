@@ -11,12 +11,12 @@ provider "aws" {
 # Define the input variables for the Terraform configuration
 variable "region" {
   description = "AWS region for the Kubernetes cluster"
-  default     = "us-east-1"  # Change this to your desired region
+  default     = "us-east-1"
 }
 
 variable "cluster_name" {
   description = "This will be the Tennessee Realtors Cluster"
-  default     = "tnr-cluster"  # Change this to your desired cluster name
+  default     = "tnr-cluster"
 }
 
 # Use the official kops Terraform module to deploy a Kubernetes cluster
@@ -25,7 +25,7 @@ module "kops" {
   cluster_name  = var.cluster_name
   topology      = "private"
   dns_zone      = var.cluster_name
-  master_zones  = ["us-east-1a", "us-east-1b", "us-east-1c"]  # Change these to your desired availability zones
+  master_zones  = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }
 
 # Output the important information about the created Kubernetes cluster
